@@ -9,7 +9,10 @@ const Layout = ({content = () => null }) => (
     </header>
 
     <div>
+
+
     {content()}
+
     </div>
 
     <footer>
