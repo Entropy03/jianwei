@@ -8,6 +8,10 @@ import PostList from './containers/postlist';
 import Post from './containers/post';
 import NewPost from './containers/newpost';
 import ThingList from './containers/thinglist';
+
+import ChatList from './components/chatlist';
+import FollowList from './components/followlist';
+
 import Scene from './containers/scene';
 
 export default function (injectDeps, {FlowRouter}) {
@@ -27,7 +31,10 @@ export default function (injectDeps, {FlowRouter}) {
     action() {
       mount(HomeCtx, {
         sceneList:()=>(<Scene/>),
-        content: () => (<ThingList/>)
+        content: () => (<ThingList/>),
+        chat:()=>(<ChatList/>),
+        follow:()=>(<FollowList/>)
+
       });
     }
   });

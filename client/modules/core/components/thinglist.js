@@ -37,7 +37,7 @@ const rightIconMenu = (
 const ThingList = ({things}) => (
   <Paper style={style} zDepth={2}>
     <List>
-      <Subheader>今天</Subheader>
+      <Subheader>待处理</Subheader>
       {things.map((thing)=>(
           <div key={thing._id}>
             <ListItem

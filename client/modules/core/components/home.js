@@ -15,13 +15,25 @@ const muiTheme = getMuiTheme({
 const style = {
   marginLeft: '50%',
 };
+const left ={
+  float:'left',
+  display: 'inline-block',
+}
+const right ={
+  float:'left',
+  display: 'inline-block',
 
-const Home = ({sceneList = () => null,content = () => null }) => (
+}
+const Home = ({sceneList = () => null,content = () => null ,follow=()=>null,chat=()=>null}) => (
 <div>
   <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
     <div>
       {sceneList()}
       {content()}
+      {follow()}
+      {chat()}
+
+
 
 
       <AddContent/>
