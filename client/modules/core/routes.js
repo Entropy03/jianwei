@@ -10,6 +10,8 @@ import NewPost from './containers/newpost';
 import ThingList from './containers/thinglist';
 
 import ChatList from './components/chatlist';
+import ThingDes from './components/thing';
+
 import FollowList from './components/followlist';
 
 import Scene from './containers/scene';
@@ -33,7 +35,8 @@ export default function (injectDeps, {FlowRouter}) {
         sceneList:()=>(<Scene/>),
         content: () => (<ThingList/>),
         chat:()=>(<ChatList/>),
-        follow:()=>(<FollowList/>)
+        follow:()=>(<FollowList/>),
+        thingDes:()=>(<ThingDes/>)
 
       });
     }

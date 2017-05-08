@@ -12,7 +12,7 @@ import MenuItem from 'material-ui/MenuItem';
 
 const style = {
   height: '100%',
-  width: 300,
+  width: '18%',
   margin: 20,
   display: 'inline-block',
 };
@@ -54,6 +54,8 @@ const ThingList = ({things}) => (
             <Divider inset={true} />
 
           </div>
+
+
       ))}
 
     </List>

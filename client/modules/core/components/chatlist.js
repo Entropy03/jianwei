@@ -7,7 +7,7 @@ import Divider from 'material-ui/Divider';
 import CommunicationChatBubble from 'material-ui/svg-icons/communication/chat-bubble';
 const style = {
   height: '100%',
-  width: 300,
+  width: '18%',
   margin: 20,
   display: 'inline-block',
 };
