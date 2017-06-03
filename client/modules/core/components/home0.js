@@ -24,11 +24,20 @@ const right ={
   display: 'inline-block',
 
 }
-const Home = ({sceneList = () => null}) => (
+const Home = ({sceneList = () => null,content = () => null ,follow=()=>null,chat=()=>null,thingDes=()=>null}) => (
 <div>
   <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
     <div>
       {sceneList()}
+      {content()}
+      {chat()}
+      {thingDes()}
+
+     <div>  {follow()}</div>
+
+
+
+      <AddContent/>
     </div>
 
   </MuiThemeProvider>

@@ -28,9 +28,19 @@ export default function (injectDeps, {FlowRouter}) {
       });
     }
   });
+
   FlowRouter.route('/home', {
     name: 'tings.list',
-    action() {
+    action({sceneId}) {
+      mount(HomeCtx, {
+        sceneList:()=>(<Scene/>),
+
+      });
+    }
+  });
+  FlowRouter.route('/home/:sceneId', {
+    name: 'tings.list',
+    action({sceneId}) {
       mount(HomeCtx, {
         sceneList:()=>(<Scene/>),
         content: () => (<ThingList/>),
