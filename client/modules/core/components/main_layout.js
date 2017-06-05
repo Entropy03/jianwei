@@ -1,9 +1,7 @@
 import React from 'react';
 import Navigation from './navigation';
-import Header from './header.js';
 const Layout = ({content = () => null }) => (
   <div>
-    <Header />
 
 
     <div>

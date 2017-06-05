@@ -26,7 +26,11 @@ export default class Scene extends React.Component {
   }
 
   handleToggle = () => this.setState({open: !this.state.open});
-  handleClose = () => this.setState({open: false});
+  handleClose = (id) => {
+    this.setState({open: false});
+    FlowRouter.go("/home/"+id);
+
+  }
 
   render() {
 
@@ -55,10 +59,9 @@ export default class Scene extends React.Component {
           iconElementLeft={<IconButton><NavigationClose /></IconButton>}
           onTouchTap={this.handleToggle}/>
         {this.props.scenes.map(scene =>{
-          console.log(scene);
           return(
             <div  key={scene._id}>
-              <MenuItem onTouchTap={this.handleClose}>{scene.title}</MenuItem>
+              <MenuItem onTouchTap={()=> {this.handleClose(scene._id)}}>{scene.title}</MenuItem>
               <Divider inset={true} />
             </div>
 

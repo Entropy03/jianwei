@@ -5,35 +5,41 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import AddContent from './addcontent';
 
 const muiTheme = getMuiTheme({
-  palette: {
-    textColor: cyan500,
-  },
-  appBar: {
-    height: 50,
-  },
+	palette: {
+		textColor: cyan500
+	},
+	appBar: {
+		height: 50
+	}
 });
 const style = {
-  marginLeft: '50%',
+	marginLeft: '50%'
 };
-const left ={
-  float:'left',
-  display: 'inline-block',
+const left = {
+	float: 'left',
+	display: 'inline-block'
 }
-const right ={
-  float:'left',
-  display: 'inline-block',
-
+const right = {
+	float: 'left',
+	display: 'inline-block'
 }
-const Home = ({sceneList = () => null}) => (
-<div>
-  <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
-    <div>
-      {sceneList()}
-    </div>
+const Home = ({
+	header = () => null,
+	content = () => null,
+	footer = () => null
+},) => (
+	<div>
+		<MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
 
-  </MuiThemeProvider>
+			<div>
+        {header()}
+				{content()}
+        {footer()}
 
-</div>
+			</div>
+
+		</MuiThemeProvider>
+	</div>
 
 );
 

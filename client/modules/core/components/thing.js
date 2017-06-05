@@ -27,7 +27,6 @@ export default class ThingDes extends React.Component {
       width: '50%',
       margin: 20,
       display: 'inline-block',
-      float:'right'
     };
     return (
       <Paper  style={style} zDepth={2}>

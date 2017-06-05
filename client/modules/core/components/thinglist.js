@@ -9,61 +9,68 @@ import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
+import Thing from './thing.js'
+import {Tabs, Tab} from 'material-ui/Tabs';
+import TextField from 'material-ui/TextField';
 
 const style = {
-  height: '100%',
-  width: '18%',
-  margin: 20,
-  display: 'inline-block',
+	height: '800',
+	width: '400',
+	margin: 20,
+	display: 'inline-block'
+};
+const desStyle = {
+	height: '800',
+	width: '300',
+	margin: 20,
+	display: 'inline-block'
 };
 const iconButtonElement = (
-  <IconButton
-    touch={true}
-    tooltip="more"
-    tooltipPosition="bottom-left"
-  >
-    <MoreVertIcon color={grey400} />
-  </IconButton>
+	<IconButton touch={true} tooltip="more" tooltipPosition="bottom-left">
+		<MoreVertIcon color={grey400}/>
+	</IconButton>
 );
 
 const rightIconMenu = (
-  <IconMenu iconButtonElement={iconButtonElement}>
-    <MenuItem>Reply</MenuItem>
-    <MenuItem>Forward</MenuItem>
-    <MenuItem>Delete</MenuItem>
-  </IconMenu>
+	<IconMenu iconButtonElement={iconButtonElement}>
+		<MenuItem>Reply</MenuItem>
+		<MenuItem>Forward</MenuItem>
+		<MenuItem>Delete</MenuItem>
+	</IconMenu>
 );
 
 const ThingList = ({things}) => (
-  <Paper style={style} zDepth={2}>
-    <List>
-      <Subheader>待处理</Subheader>
-      {things.map((thing)=>(
-          <div key={thing._id}>
-            <ListItem
-              rightIconButton={rightIconMenu}
-              primaryText={thing.owner}
-              secondaryText={
-                <p>
-                  <span style={{color: darkBlack}}>{thing.title}?</span><br />
-                  {thing.title}
-                </p>
-              }
-              secondaryTextLines={2}
-            />
-            <Divider inset={true} />
+	<div>
+		<Paper style={style} zDepth={2}>
+			<List>
 
-          </div>
+				<Tabs>
+					<Tab label="待处理的事" value={0}/>
+					<Tab label="需要协同的事" value={1}/>
+					<Tab label="已关注的事" value={2}/>
+				</Tabs>
+				<TextField hintText="搜索" style={{
+        color: darkBlack
+      }}/>
+        {things.map((thing) => (
+					<div key={thing._id}>
+						<ListItem rightIconButton={rightIconMenu} primaryText={thing.owner} secondaryText={< p >
+              <span style={{
+							color: darkBlack
+						}}>{thing.title}?</span> < br /> {
+							thing.title
+						} < /p>} secondaryTextLines={2}/>
+						<Divider inset={true}/>
 
+					</div>
 
-      ))}
+				))}
 
-    </List>
+			</List>
 
-
-
-  </Paper>
-
+		</Paper>
+		<Thing/>
+	</div>
 );
 
 export default ThingList;

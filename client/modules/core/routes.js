@@ -15,6 +15,8 @@ import ThingDes from './components/thing';
 import FollowList from './components/followlist';
 
 import Scene from './containers/scene';
+import Header from './containers/header';
+
 
 export default function (injectDeps, {FlowRouter}) {
   const MainLayoutCtx = injectDeps(MainLayout);
@@ -30,10 +32,12 @@ export default function (injectDeps, {FlowRouter}) {
   });
 
   FlowRouter.route('/home', {
-    name: 'tings.list',
-    action({sceneId}) {
+    name: 'scene.list',
+    action() {
       mount(HomeCtx, {
-        sceneList:()=>(<Scene/>),
+        header:()=>null,
+        content:()=>(<Scene/>),
+        footer:()=>null
 
       });
     }
@@ -42,16 +46,14 @@ export default function (injectDeps, {FlowRouter}) {
     name: 'tings.list',
     action({sceneId}) {
       mount(HomeCtx, {
-        sceneList:()=>(<Scene/>),
-        content: () => (<ThingList/>),
-        chat:()=>(<ChatList/>),
-        follow:()=>(<FollowList/>),
-        thingDes:()=>(<ThingDes/>)
+        header:()=>(<Header/>),
+        content: () => (<ThingList sceneId={sceneId}/>),
+        footer:()=>null
 
       });
     }
   });
-  FlowRouter.route('/post/:postId', {
+  FlowRouter.route('/things/:postId', {
     name: 'posts.single',
     action({postId}) {
       mount(MainLayoutCtx, {
