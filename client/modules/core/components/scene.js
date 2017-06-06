@@ -65,7 +65,7 @@ export default class Scene extends React.Component {
 						<AppBar title="选择一个情景"/> {this.props.scenes.map(scene => {
 							return (
 								<div key={scene._id}>
-									<ListItem onTouchTap={ ()=> {this.handleTouchTap(scene._id)}} rightIconButton={rightIconMenu} primaryText={scene.title} secondaryText={scene.title} secondaryTextLines={2}/>
+									<ListItem onTouchTap={ ()=> {this.handleTouchTap(scene._id)}} rightIconButton={rightIconMenu} primaryText={scene.title} secondaryText={scene.content} secondaryTextLines={2}/>
 									<Divider inset={true}/>
 								</div>
 							)

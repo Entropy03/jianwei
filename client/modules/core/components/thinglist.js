@@ -57,8 +57,8 @@ const ThingList = ({things}) => (
 						<ListItem rightIconButton={rightIconMenu} primaryText={thing.owner} secondaryText={< p >
               <span style={{
 							color: darkBlack
-						}}>{thing.title}?</span> < br /> {
-							thing.title
+						}}>{thing.content}</span> < br /> {
+							thing.content
 						} < /p>} secondaryTextLines={2}/>
 						<Divider inset={true}/>
 
@@ -67,7 +67,9 @@ const ThingList = ({things}) => (
 				))}
 
 			</List>
-
+			<List>
+				<Subheader>添加一个事情</Subheader>
+			</List>
 		</Paper>
 		<Thing/>
 	</div>

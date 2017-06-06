@@ -15,6 +15,7 @@ export default {
         return LocalState.set('SAVING_ERROR', err.message);
       }
     });
+    return id;
   },
 
   clearErrors({LocalState}) {

@@ -19,14 +19,13 @@ function handleActive(tab) {
 
 const AddTabs = () => (
   <Tabs>
-    <Tab label="情景" >
+    <Tab label="新建情景" >
       <div>
       <AddScene />
       </div>
     </Tab>
-    <Tab label="事件" >
+    <Tab label="添加已有情景" >
       <div>
-      <AddThings />
       </div>
     </Tab>
   </Tabs>
