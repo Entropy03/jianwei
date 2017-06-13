@@ -14,7 +14,7 @@ export const composer = ({context,sceneId}, onData) => {
   } else {
     const things = Collections.Things.find();
     if (things) {
-      onData(null, {things});
+      onData(null, {things,sceneId});
     } else {
       onData();
     }

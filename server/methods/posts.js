@@ -35,4 +35,12 @@ export default function () {
       Comments.insert(comment);
     }
   });
+  Meteor.methods({
+    'post.test'(text) {
+      check(text, String);
+
+      console.log(text);
+
+    }
+  });
 }

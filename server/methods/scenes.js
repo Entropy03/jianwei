@@ -1,4 +1,4 @@
-import {Scenes, Comments} from '/lib/collections';
+import {Scenes} from '/lib/collections';
 import {Meteor} from 'meteor/meteor';
 import {check} from 'meteor/check';
 

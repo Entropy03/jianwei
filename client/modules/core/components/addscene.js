@@ -16,7 +16,7 @@ class AddScene extends React.Component {
 		stepIndex: 0,
 		title: "",
 		content: "",
-		code: "123123"
+		code: ""
 	};
 
 	dummyAsync = (cb) => {
@@ -35,6 +35,7 @@ class AddScene extends React.Component {
 	}
 	handleNext = (type) => {
 		const {stepIndex, title, content} = this.state;
+		console.log(this.props);
 
 		if (type) {
       const {create} = this.props;

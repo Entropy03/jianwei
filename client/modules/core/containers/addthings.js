@@ -1,4 +1,4 @@
-import AddScene from '../components/addscene';
+import addThings from '../components/addthings';
 import {useDeps, composeWithTracker, composeAll} from 'mantra-core';
 
 export const composer = ({
@@ -8,14 +8,14 @@ export const composer = ({
 	const {LocalState} = context();
 	const error = LocalState.get('SAVING_ERROR');
 	onData(null, {error});
+
 	// clearErrors when unmounting the component
 	return clearErrors;
 };
 
 export const depsMapper = (context, actions) => ({
-	create: actions.scene.create,
-	clearErrors: actions.scene.clearErrors,
+	create: actions,
+	clearErrors: actions,
 	context: () => context
 });
-
-export default composeAll(composeWithTracker(composer), useDeps(depsMapper))(AddScene);
+export default composeAll(composeWithTracker(composer), useDeps(depsMapper))(addThings);
