@@ -53,8 +53,8 @@ const ThingList = ({things,sceneId}) => (
 					<div key={thing._id}>
 						<ListItem rightIconButton={rightIconMenu} primaryText={thing.owner} secondaryText={< p > <span style={{
 							color: darkBlack
-						}}>{thing.content}</span> < br/> {
-							thing.content
+						}}>{thing.title}</span> < br/> {
+							thing.describe
 						} < /p>} secondaryTextLines={2}/>
 						<Divider inset={true}/>
 

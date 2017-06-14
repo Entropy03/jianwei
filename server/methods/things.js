@@ -6,10 +6,12 @@ export default function() {
 
 	Meteor.methods({
 		'things.create' (_id, title, describe, category, scenes, type, pid) {
+			console.log("message");
+
 			check(_id, String);
 			check(title, String);
 			check(describe, String); //叙述
-			check(category, String);
+			check(category, Number);
 			check(scenes, String);
 			check(pid, String);
 			check(type, String);

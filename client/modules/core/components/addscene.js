@@ -35,7 +35,6 @@ class AddScene extends React.Component {
 	}
 	handleNext = (type) => {
 		const {stepIndex, title, content} = this.state;
-		console.log(this.props);
 
 		if (type) {
       const {create} = this.props;

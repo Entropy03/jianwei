@@ -5,6 +5,7 @@ import {check} from 'meteor/check';
 export default function () {
   Meteor.methods({
     'scenes.create'(_id, title, content) {
+
       check(_id, String);
       check(title, String);
       check(content, String);

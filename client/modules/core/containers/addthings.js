@@ -14,8 +14,8 @@ export const composer = ({
 };
 
 export const depsMapper = (context, actions) => ({
-	create: actions,
-	clearErrors: actions,
+	create: actions.things.create,
+	clearErrors: actions.things.clearErrors,
 	context: () => context
 });
 export default composeAll(composeWithTracker(composer), useDeps(depsMapper))(addThings);

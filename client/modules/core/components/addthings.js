@@ -7,25 +7,23 @@ import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
-
 /**
  * A contrived example using a transition between steps
  */
 class AddThings extends React.Component {
 	constructor(props) {
-    super(props);
+		super(props);
 
-	  this.state = {
+		this.state = {
 			loading: false,
 			finished: false,
 			stepIndex: 0,
 			value: '',
-	    title:'',
-	    content:'',
-			sceneId:this.props.sceneId
+			title: '',
+			content: '',
+			sceneId: this.props.sceneId
 		};
-	 }
-
+	}
 
 	dummyAsync = (cb) => {
 		this.setState({
@@ -36,11 +34,15 @@ class AddThings extends React.Component {
 	};
 
 	handleNext = (type) => {
-		const {stepIndex, title, content,sceneId,value} = this.state;
+		const {stepIndex, title, content, sceneId, value} = this.state;
 
 		if (type) {
-			console.log(this.props);
+			let pid = "";
+			let mytype = 'todo';
+			const {create} = this.props;
 
+
+			create(title, content, value, sceneId, mytype, pid);
 		}
 		if (!this.state.loading) {
 			this.dummyAsync(() => this.setState({
@@ -50,41 +52,31 @@ class AddThings extends React.Component {
 			}));
 		}
 	};
-  handleChange = (event) => {
+	handleChange = (event) => {
 		const target = event.target;
-    console.log(target);
 
 		const name = target.name;
 		this.setState({[name]: target.value});
 
 	}
-  changeType =(event, index, value) => this.setState({value});
-	handlePrev = () => {
-		const {stepIndex} = this.state;
-		if (!this.state.loading) {
-			this.dummyAsync(() => this.setState({
-				loading: false,
-				stepIndex: stepIndex - 1
-			}));
-		}
-	};
+	changeType = (event, index, value) => this.setState({value});
 
 	getStepContent(stepIndex) {
 		return (
 			<div>
 				<TextField name="title" style={{
 					marginTop: 0
-				}} floatingLabelText="什么事情"/><br/>
+				}} floatingLabelText="什么事情"  onChange={this.handleChange}/><br/>
 
-				<SelectField  floatingLabelText="事件分类" value={this.state.value} onChange={this.changeType}>
-					<MenuItem  value={1} primaryText="新想法"/>
-					<MenuItem  value={2} primaryText="有问题"/>
-					<MenuItem  value={3} primaryText="做事情"/>
+				<SelectField floatingLabelText="事件分类" value={this.state.value} onChange={this.changeType}>
+					<MenuItem value={1} primaryText="新想法"/>
+					<MenuItem value={2} primaryText="有问题"/>
+					<MenuItem value={3} primaryText="做事情"/>
 
 				</SelectField><br/>
-				<TextField name = "content" style={{
+				<TextField name="content" style={{
 					marginTop: 0
-				}} rows={4} rowsMax={4} floatingLabelText="具体描述"/>
+				}} rows={4} rowsMax={4} floatingLabelText="具体描述"  onChange={this.handleChange}/>
 			</div>
 		);
 	}
@@ -113,12 +105,9 @@ class AddThings extends React.Component {
 					marginTop: 24,
 					marginBottom: 12
 				}}>
-					<FlatButton label="Back" disabled={stepIndex === 0} onTouchTap={this.handlePrev} style={{
-						marginRight: 12
-					}}/>
-					<RaisedButton label={stepIndex === 2
-						? 'Finish'
-						: 'Next'} primary={true} onTouchTap={this.handleNext}/>
+					<RaisedButton label={stepIndex === 1
+						? '完成'
+						: '下一步'} primary={true} onTouchTap={() => this.handleNext(true)}/>
 				</div>
 			</div>
 		);
